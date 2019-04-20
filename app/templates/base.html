@@ -3,16 +3,17 @@
         {% if title %}
         <title>{{ title }} - Stocal</title>
         {% else %}
-        <title>microblog</title>
+        <title>Stocal</title>
         {% endif %}
     </head>
     <body>
         <div>
-        Microblog:
+            Microblog:
             <a href="{{ url_for('index') }}">Home</a>
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
             {% else %}
+            <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
             <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
         </div>

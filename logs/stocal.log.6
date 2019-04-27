@@ -1,4 +1,4 @@
-2019-04-27 15:36:11,465 ERROR: Exception on /index [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-04-27 15:30:47,904 ERROR: Exception on /index [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -33,7 +33,7 @@ Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\index.html", line 10, in template
-    {% endblock %}
+    {% endfor %}
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
     return Parser(self, source, name, encode_filename(filename)).parse()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
@@ -64,4 +64,4 @@ Traceback (most recent call last):
     self.fail(' '.join(message), lineno)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
     raise exc(msg, lineno, self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.

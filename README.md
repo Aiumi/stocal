@@ -1,2 +1,2 @@
-# stocal
+# Stocal
 Stock app using flask

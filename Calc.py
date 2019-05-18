@@ -50,7 +50,7 @@ def calc(company):
         decision = 'Buy'
     elif culm[0] + culm[1] <= -5:
         decision = 'Sell'
-    return decision
+    return company + ': ' + decision
     #log the decision
 
 

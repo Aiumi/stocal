@@ -1,0 +1,70 @@
+w 5.0
+FDA approval
+FDA approved
+SEC approval 
+SEC approved
+new product release
+new service release
+#
+w 4.0
+asdfasdf
+#
+w 3.0
+significant growth in users
+income has increased by
+with the new product
+with the new service
+#
+w 2.0
+growth in sales
+users have grown over
+# 
+w 1.0
+decrease in raw materials cost
+decreasing cost of raw materials
+cost of gas decrease
+cost of petrol decrease
+lower cost of petrol
+transportation costs decrease
+lower cost of transportation
+increasing production
+improved supply chain
+#
+w -1.0
+decreasing production
+production problems
+production issues
+poor supply chain
+increasing cost of raw materials
+cost of gas increase
+cost of petrol increase
+transportation cost increase
+cost of materials has increased
+will not support older models
+will no longer use the older service
+# 
+w -2.0
+logistics hell
+will not partner with
+new model has issues
+new service has issues
+new model has problems
+new service has problems
+poor quality
+poor build quality
+#
+w -3.0
+significant drop in users
+significant drop in the subscription service
+# 
+w -4.0
+data breach
+data stolen
+stolen data
+breach of privacy
+# 
+w -5.0
+FDA denial
+FDA denied
+SEC denial
+SEC denied

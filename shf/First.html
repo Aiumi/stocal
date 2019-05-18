@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+<head>
+    <meta charset="utf-8"/>
+    <script src="C:\Users\penga_000\Anaconda3\Lib\site-packages\data\brython.js"></script>
+    <style>
+        .left
+        {
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-left: 2em;
+            float: left;
+            background-color: #b5d3e7
+        }
+
+        .right
+        {
+            padding-right: 1em;
+            padding-left: 1em;
+            margin-right: 2em;
+            float: right;
+            background-color: #cccc00
+        }
+        
+        #feedback
+        {
+            height: 10em;
+            float: left;
+            margin-left: 2em;
+            width: 33%;
+            border: .5em solid #fa8072;
+            white-space: pre-line;
+        }
+    </style>
+    </head>
+
+<body onload="brython()">
+
+<script type="text/python">
+    from browser import document, alert, html
+    
+    eol = "\r\n";
+    
+    def rightProc(evt):
+        label = evt.target.text
+        butt = newButton(label, leftProc)
+        document["leftList"].append( html.LI( butt ) )
+        fb = label + "\r\n"
+        #document["feedback"] <= label + "\r\n"
+        
+    def feedback(evt):
+        document["feedback"] <= "feedback target" + eol
+        
+    def newButton(label, binding):
+        butt = html.BUTTON( label )
+        butt.bind("click", binding)
+        return butt
+        
+    def leftProc(evt):
+        document["feedback"] <= evt.target.text + eol
+        
+    leftL = document["leftList"];
+    rightL = document["rightList"]
+    for inx in range(5):
+        label = "Left Item " + str(inx) + eol
+        butt = newButton(label, leftProc)
+        leftL.append( html.LI( butt ) );
+   
+    for inx in range(5):
+        label = "Right Button " + str(inx) + eol
+        butt = newButton(label, rightProc)
+        document["rightList"].append( html.LI( butt ) );
+</script>
+
+    <div class = left>
+        <ul id = leftList></ul>
+    </div>
+
+    <p id="feedback">
+    </p>
+
+    <div class = "right">
+        <ul id = "rightList"></ul>
+    </div>
+
+</body>
+</html>

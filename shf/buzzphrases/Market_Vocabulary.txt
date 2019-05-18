@@ -1,0 +1,92 @@
+w 5.0
+aaweoidscjlae
+#
+w 4.0
+cash buyout
+all time high
+#
+w 3.0
+revenues were reported high
+marketable shares increase
+capital gains boost
+capital gains increase
+capital gains surge
+capital gains explode
+excellent guidance
+blowout profits
+merger
+acquisition
+profits are beating the market expectations
+profits were beating the market expectations
+overperforming in the market
+#
+w 2.0
+steady guidance
+cash in bank
+value gain
+gain per share
+sound investment
+large cash flow
+large amount of cash in the bank
+large investment in
+Q1 result are amazing
+Q2 results are amazing
+Q3 results are amazing
+Q4 results are amazing
+Q1 which is outstanding
+Q2 which is outstanding
+Q3 which is outstanding
+Q4 which is outstanding
+Q1 results are lower than expected
+Q2 results are lower than expected
+Q3 results are lower than expected
+Q4 results are lower than expected
+# 
+w 1.0
+bull
+bullish
+is a trade
+is a short term investment
+is a long term investment
+make a break out
+rally 
+very aggressive
+gain
+signs of recovery
+making a break out
+grown
+buy order
+higher profits
+high profits
+all time low
+marketable shares decrease
+bankruptcy
+low profits this quarter
+#
+w -1.0
+bear
+bearish
+bear market
+loss
+down
+volatile
+value loss
+dip
+downward
+depreciation
+# 
+w -2.0
+is this the end of
+low profits this quarter
+#
+w -3.0
+all time low
+marketable shares decrease
+# 
+w -4.0
+filing for bankruptcy
+files for bankruptcy
+filed for bankruptcy
+# 
+w -5.0
+asdfdsa

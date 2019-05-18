@@ -6,6 +6,7 @@ from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswor
 from app.models import User
 from app.email import send_password_reset_email
 from werkzeug.urls import url_parse
+import Calc
 from datetime import datetime
 
 @app.route('/')
@@ -111,3 +112,8 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
+
+@app.route('/run_stocks')
+def run_stocks():
+    value = Calc.calc('uber')
+    return render_template('results.html', results=value)

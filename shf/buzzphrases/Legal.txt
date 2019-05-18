@@ -1,0 +1,56 @@
+w 5.0
+aaweoidscjlae
+#
+w 4.0
+asfwaeijka
+#
+w 3.0
+asdfewjilakds
+#
+w 2.0
+asdfaewfcji
+# 
+w 1.0
+aawesdaefdjsk
+#
+w -1.0
+antitrust
+#
+w -2.0
+outside investigation firm
+# 
+w -3.0
+lawsuit
+lawsuits
+CEO refuses to testify
+CFO refuses to testify
+CTO refuses to testify
+CIO refuses to testify
+CSO refuses to testify
+COO refuses to testify
+board of directors refuses to testify
+CEO refused to testify
+CFO refused to testify
+CTO refused to testify
+CIO refused to testify
+CSO refused to testify
+COO refused to testify
+board of directors refused to testify
+CEO refusing to testify
+CFO refusing to testify
+CTO refusing to testify
+CIO refusing to testify
+CSO refusing to testify
+COO refusing to testify
+board of directors refusing to testify
+#
+w -4.0
+department of Justice investigation
+DOJ investigation
+fraud
+tax evasion
+#
+w -5.0
+rape
+rape allegations
+rape investigation

@@ -1,0 +1,54 @@
+w 5.0
+asdfsad
+#
+w 4.0
+asdfasdf
+#
+w 3.0
+asdfdsa
+#
+w 2.0
+SEC change of regulations
+decreased tax
+lower tax
+decreased tariff
+lower tariff
+# 
+w 1.0
+asdfasdf
+#
+w -1.0
+tariff
+proposed new tax
+new tariff regulations
+new tariff laws
+taxes
+# 
+w -2.0
+increased tax
+higher tax
+increased tariff
+higher tariff
+trade war
+technology war
+information war
+embargo
+embargo on
+embargos on
+embargos placed on
+economic sanctions
+economic sanctions on
+economic sanctions placed on
+government unrest
+civil unrest
+rebellion
+#
+w -3.0
+government shutdown
+accusations of political bias
+# 
+w -4.0
+asdfads
+# 
+w -5.0
+asdfdsa

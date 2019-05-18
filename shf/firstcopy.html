@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+<head>
+    <meta charset="utf-8"/>
+	<title>App</title>
+    <script src="C:/Users/penga_000/Anaconda3/Lib/site-packages/data/brython.js"></script>
+    <!---<script src="static/Brython-3.7.0/brython.js"></script>--->
+    <style>
+        .left
+        {
+            float: left;
+			min-height:50em;
+			min-width: 33%;
+			max-width: 66%;
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-left: 2em;
+            background-color: #b5d3e7
+        }
+
+        #leftList
+        {
+            list-style-type: none   
+        }
+        
+		.center
+		{
+			float: right;
+            margin-left: 2em;
+            width: 33%;
+            border: .5em solid #000000;
+            white-space: pre-line;
+		}
+		
+		#centerList
+		{
+			list-style-type: none
+		}
+		
+		.centerButton
+		{
+			min-width: 80%
+		}
+		
+        #feedback
+        {
+            height: 10em;
+            margin-left: 2em;
+            width: 33%;
+            border: .5em solid #fa8072;
+            white-space: pre-line;
+        }
+    </style>
+    </head>
+
+<body onload="brython()">
+
+<script type="text/python">
+    from browser import document, alert, html
+    
+    eol = "\r\n";
+    
+    def centerProc(evt):
+        label = evt.target.text
+        butt = newButton(label, leftProc)
+        document["leftList"].append( html.LI( butt ) )
+        fb = label + "\r\n"
+        evt.target['disabled'] = True
+        #document["feedback"] <= label + "\r\n"
+        
+    def feedback(evt):
+        document["feedback"] <= "feedback target" + eol
+        
+    def newButton(label, binding):
+        butt = html.BUTTON( label )
+        butt.bind("click", binding)
+        return butt
+        
+    def printLine(param):
+        document['feedback'] <= param + eol
+        
+    def leftProc(evt):
+        targetText = evt.target.text
+        for i in document['centerList']:
+            if i.text in targetText:
+                document['feedback'] <= i.text + eol
+                ident = document[i.text].text
+                #printLine(str(ident) + '^^^')
+                document[ident].disabled = False
+        document['leftList'].removeChild(evt.target.parent)
+        
+    def runProc():
+        printLine('****')
+        
+    leftL = document["leftList"]
+    centerL = document["centerList"]
+    runB = document["run"]
+    
+    companyL = [
+        'Apple',
+        'Google',
+        'Microsoft',
+        'Amazon',
+        'Facebook'
+    ]
+    
+    for c in companyL:
+        #label = "Left Item " + str(c) + eol
+        butt = newButton(c, centerProc)
+        butt.id = c
+        centerL.append( html.LI( butt ))
+        
+    butt = newButton('run', runProc)
+    butt.id = 'runButton'
+    runB.append(butt)
+        
+</script>
+	<div class = 'container'>
+		<div class = 'content row'>
+			<div class = 'col-lg-12'>
+				<div class = 'left'>
+                    <div id = 'run'>
+                    </div>
+                    <!---<button class = 'runButton' value = 'run' onClick = 'run()'>Run</button>--->
+					<ul id = 'leftList'>
+					</ul>
+				</div>
+
+				<div class = 'center'>
+					<ul id = 'centerList'>
+						<!--<li><button class = 'centerButton'>Google</button></li>
+						<li><button class = 'centerButton'>Apple</button></li>
+						<li><button class = 'centerButton'>Microsoft</button></li>
+						<li><button class = 'centerButton'>Facebook</button></li>
+						<li><button class = 'centerButton'>Amazon</button></li>-->
+					</ul>
+				</div>
+			
+				
+			</div>
+		</div>
+	</div>
+	<div id="feedback">
+	</div>
+</body>
+</html>

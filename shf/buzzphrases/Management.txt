@@ -1,0 +1,210 @@
+w 5.0
+aaweoidscjlae
+#
+w 4.0
+asfwaeijka
+#
+w 3.0
+company restructuring
+new CEO entered
+new CEO hired
+new CEO brought on
+new COO entered
+new COO hired
+new COO brought on
+new CFO entered
+new CFO hired
+new CFO brought on
+new CIO entered
+new CIO hired
+new CIO brought on
+new CSO entered
+new CSO hired
+new CSO brought on
+new CTO entered
+new CTO hired
+new CTO brought on
+new Board of Directors entered
+new Board of Directors hired
+new Board of Directors brought on
+#
+w 2.0
+proven himself capable
+proven herself capable
+# 
+w 1.0
+high employee confidence
+high consumer confidence
+high employee satisfaction
+applauded
+inspire employees
+win over the public
+reliable
+success story
+success stories
+merger
+acquisition
+#
+w -1.0
+low employee confidence
+low consumer confidence
+low employee satisfaction
+controversies
+# 
+w -2.0
+has been without CEO
+has been without COO
+has been without CFO
+has been without CIO
+has been without CSO
+has been without CTO
+disagrees with current political party
+CEO disagrees with current political party
+COO disagrees with current political party
+CFO disagrees with current political party
+CIO disagrees with current political party
+CTO disagrees with current political party
+CSO disagrees with current political party
+board of directors disagrees with current political party
+came under scrutiny
+CEO came under scrutiny
+CTO came under scrutiny
+COO came under scrutiny
+CSO came under scrutiny
+CFO came under scrutiny
+CIO came under scrutiny
+board of directors came under scrutiny
+is criticized
+was criticized
+being criticized
+CEO was criticized
+CFO was criticized
+COO was criticized
+CSO was criticized
+CTO was criticized
+CIO was criticized
+board of directors was criticized
+accused of
+CEO accused of
+CFO accused of
+COO accused of
+CSO accused of
+CTO accused of
+CIO accused of
+board of directors accused of
+controversies pile up
+controversies keep cropping up
+#
+w -3.0
+CEO leaving
+CFO leaving
+COO leaving
+CIO leaving
+CSO leaving
+CTO leaving
+board of directors leaving
+CEO steps down
+CFO steps down
+COO steps down
+CIO steps down
+CSO steps down
+CTO steps down
+board of directors steps down
+CEO stepped down
+CFO stepped down
+COO stepped down
+CIO stepped down
+CSO stepped down
+CTO stepped down
+board of directors steps down
+CEO retiring
+CFO retiring
+COO retiring
+CIO retiring
+CSO retiring
+CTO retiring
+board of directors retiring
+allegations
+CEO allegations
+CTO allegations
+CSO allegations
+CIO allegations
+CFO allegations
+COO allegations
+board of directors allegations
+mass layoff
+# 
+w -4.0
+afewsdfawesdfa
+# 
+w -5.0
+CEO has been put on suspension pending the investigation
+CTO has been put on suspension pending the investigation
+CSO has been put on suspension pending the investigation
+CIO has been put on suspension pending the investigation
+CFO has been put on suspension pending the investigation
+COO has been put on suspension pending the investigation
+board of directors has been put on suspension pending the investigation
+CEO has been accused of sexual misconduct
+CTO has been accused of sexual misconduct
+CSO has been accused of sexual misconduct
+CIO has been accused of sexual misconduct
+CFO has been accused of sexual misconduct
+COO has been accused of sexual misconduct
+board of directors has been accused of sexual misconduct
+CEO murders
+CFO murders
+CTO murders
+CSO murders
+CIO murders
+COO murders
+board of directors murders
+CEO kills
+CFO kills
+CTO kills
+CSO kills
+CIO kills
+COO kills
+board of directors kills
+CEO fired
+CTO fired
+CFO fired
+CIO fired
+CSO fired
+COO fired
+board of directors fired
+CEO laid off
+CFO laid off
+COO laid off
+CSO laid off
+CTO laid off
+CIO laid off
+board of directors laid off
+CEO forced out
+CFO forced out
+COO forced out
+CSO forced out
+CTO forced out
+CIO forced out
+board of directors forced out
+CEO dies
+CFO dies
+COO dies
+CSO dies
+CTO dies
+CIO dies
+board of directors dies
+CEO passed away
+CFO passed away
+COO passed away
+CSO passed away
+CTO passed away
+CIO passed away
+board of directors passed away
+racist comments by CEO
+racist comments by CFO
+racist comments by COO
+racist comments by CSO
+racist comments by CTO
+racist comments by CIO
+racist comments by board of directors

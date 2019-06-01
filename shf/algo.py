@@ -1,3 +1,5 @@
+from pathlib import Path
+
 class PhraseMgr:
 
     listMap = dict()
@@ -16,18 +18,18 @@ class PhraseMgr:
 
     def getLists():
         
-        textroot = 'shf\\buzzphrases\\'
+        textroot = Path('shf/buzzphrases/')
         #listMap = self.listMap
         #list = self.list
         if len(PhraseMgr.listMap) > 0:
             return PhraseMgr.listMap
         
         files = [
-                textroot + 'Legal.txt',
-                textroot + 'Management.txt',
-                textroot + 'Operating.txt',
-                textroot + 'Market_Vocabulary.txt',
-                textroot + 'Political.txt'
+                textroot / 'Legal.txt',
+                textroot / 'Management.txt',
+                textroot / 'Operating.txt',
+                textroot / 'Market_Vocabulary.txt',
+                textroot / 'Political.txt'
                 ]
         
         for f in files:

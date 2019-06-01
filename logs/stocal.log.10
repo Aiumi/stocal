@@ -1,22 +1,4 @@
-2019-05-04 14:49:23,230 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 118, in run_stocks
-    t = Calc.Calc()
-AttributeError: module 'Calc' has no attribute 'Calc'
-2019-05-04 14:51:42,201 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-04 14:51:51,713 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-05-04 16:01:21,192 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -31,11 +13,20 @@ Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
-    Calc.execute('IBM')
-AttributeError: module 'Calc' has no attribute 'execute'
-2019-05-04 14:53:21,718 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-04 14:53:23,690 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-04 14:53:31,683 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+    return redirect(url_for('user', user='Brian'))
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['user']. Did you forget to specify values ['username']?
+2019-05-04 16:02:24,031 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-04 16:02:31,272 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -50,10 +41,20 @@ Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
-    Calc.execute('IBM')
-AttributeError: module 'Calc' has no attribute 'execute'
-2019-05-04 14:54:11,311 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-04 14:54:21,069 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+    return redirect(url_for('user', user=user))
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['user']. Did you forget to specify values ['username']?
+2019-05-04 16:03:52,162 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-04 16:03:59,600 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -68,10 +69,10 @@ Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
-    Calc.execute('IBM')
-AttributeError: module 'Calc' has no attribute 'execute'
-2019-05-04 14:57:43,272 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-04 14:57:48,374 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+    return redirect(url_for('user', username=username))
+NameError: name 'username' is not defined
+2019-05-04 16:18:07,737 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-04 16:18:16,950 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,24 +86,17 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
-    Calc.execute()
-AttributeError: module 'Calc' has no attribute 'execute'
-2019-05-04 14:58:03,849 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 120, in run_stocks
+    return redirect(url_for('user', user=user))
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
     reraise(exc_type, exc_value, tb)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
-    Calc.execute()
-AttributeError: module 'Calc' has no attribute 'execute'
-2019-05-04 14:58:43,892 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['user']. Did you forget to specify values ['username']?
+2019-05-04 16:21:05,950 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]

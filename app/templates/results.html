@@ -2,9 +2,29 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-    <h1>Results</h1>
 
-    <p>{{ results }}</p>
+    <h1>Here's what we found:</h1>
+    <br>
+    <table class="table table-hover">
+    {% for data in results %}
+    <tr>
+        <td>
+           {{ data[0] }}  
+        </td>
+        <td>
+           {{ data[1] }} 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            &nbsp;
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
     
 {% endblock %}
 

@@ -1,4 +1,4 @@
-2019-05-04 16:01:21,192 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-05-04 16:48:27,310 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -13,20 +13,45 @@ Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
-    return redirect(url_for('user', user='Brian'))
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['user']. Did you forget to specify values ['username']?
-2019-05-04 16:02:24,031 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-04 16:02:31,272 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+    user = User.query.filter_by(username=current_user).first_or_404()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1792, in filter_by
+    for key, value in kwargs.items()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1792, in <listcomp>
+    for key, value in kwargs.items()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 211, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\properties.py", line 315, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\annotation.py", line 104, in __eq__
+    return self.__element.__class__.__eq__(self, other)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 727, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "<string>", line 1, in <lambda>
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 67, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 105, in _boolean_compare
+    obj = _check_literal(expr, op, obj)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 368, in _check_literal
+    return expr._bind_param(operator, other, type_=bindparam_type)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 4026, in _bind_param
+    unique=True,
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 1172, in __init__
+    _compared_to_operator, value
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 553, in coerce_compared_value
+    _coerced_type = _resolve_value_to_type(value)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 2837, in _resolve_value_to_type
+    "Object %r is not legal as a SQL literal value" % value
+sqlalchemy.exc.ArgumentError: Object <User Aiumi> is not legal as a SQL literal value
+2019-05-04 16:54:15,713 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-04 16:54:24,463 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -40,21 +65,9 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
-    return redirect(url_for('user', user=user))
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['user']. Did you forget to specify values ['username']?
-2019-05-04 16:03:52,162 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-04 16:03:59,600 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+TypeError: run_stocks() missing 1 required positional argument: 'username'
+2019-05-04 16:55:51,482 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-04 16:55:58,188 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -68,11 +81,9 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
-    return redirect(url_for('user', username=username))
-NameError: name 'username' is not defined
-2019-05-04 16:18:07,737 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-04 16:18:16,950 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+TypeError: run_stocks() missing 1 required positional argument: 'username'
+2019-05-04 16:56:13,685 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-04 16:56:21,121 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -86,17 +97,20 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 120, in run_stocks
-    return redirect(url_for('user', user=user))
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+TypeError: run_stocks() missing 1 required positional argument: 'username'
+2019-05-18 12:59:07,539 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 12:59:10,239 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['user']. Did you forget to specify values ['username']?
-2019-05-04 16:21:05,950 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: run_stocks() missing 1 required positional argument: 'username'

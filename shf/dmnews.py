@@ -1,21 +1,22 @@
-from dmsuper import DMSuper
-from algo import phraseFreq
-from algo import PhraseMgr
+from shf import dmsuper, algo, myhtml
+#from company_data import company_data
 import requests
 import json
 import urllib.request
-from myhtml import text_from_html
 import sys
 import datetime
 import time
 import logging
+import traceback
 
-class DMNews(DMSuper):
+class DMNews(dmsuper.DMSuper):
     
     def __init__(self):
         
         self.companyMap = dict()
-    
+        self.resultslist = list()
+        self.companieslist = list()
+        
     def getName(self, param:str) -> str:
     
         return param
@@ -25,8 +26,6 @@ class DMNews(DMSuper):
         return .3
     
     def read(self):
-    
-        #sys.stdout = open('output.txt', 'w')
         
         #newsapi = NewsApiClient(api_key='bf87dc70b9af400d87207c4e23480ded')
         
@@ -34,11 +33,14 @@ class DMNews(DMSuper):
         print(date)
         
         queries = [
-                'apple',
-                'google'
+                'Google',
+                'Facebook'
         ]
         
         for query in queries:
+            
+            #company = company_data(query)
+            #self.companieslist.append(company)
             
             url = ('https://newsapi.org/v2/everything?'
                    'q=' + query + '&'
@@ -58,40 +60,46 @@ class DMNews(DMSuper):
             culm = [0, 0]
             name = self.getName(query)
             print(name)
+            totals = [0, 0]
             for t in temp:
+
                 try:
                     #log a debug message
                     articleurl = t['url']
                     #log the article url
                     html = urllib.request.urlopen(articleurl).read()
                     #print(articleurl)
-                    totals = phraseFreq(text_from_html(html))
+                    totals = algo.phraseFreq(myhtml.text_from_html(html))
                     #log a debug message for totals
                     culm[0] += totals[0]
                     culm[1] += totals[1]
+                    #company.articles.append(['Headline', articleurl, totals])
                     #break
                     #log another debug message
                 except:
                     print("Unexpected error:", sys.exc_info())
+                    traceback.print_exc(file=sys.stdout)
                     #log a warning message
                     #there is a logger.exception where you can pass an exception
             print('NEWS: ' + query + ' Totals: ' + str(culm))
-            decision = 'Hold'
+            decision = 'Is Neutral'
             #log the accumulated totals
-            if culm[0] + culm[1] >= 15:
-                decision = 'Buy'
-            elif culm[0] + culm[1] <= -15:
-                decision = 'Sell'
+            if culm[0] + culm[1] >= 50:
+                decision = 'Trending Upwards'
+            elif culm[0] + culm[1] <= -50:
+                decision = 'Trending Downwards'
             #log the decision
         
-            #print(query + ': ' + decision)
-            self.companyMap[name] = culm
-                    
-    stdout_orig = sys.stdout
-    
-    PhraseMgr.reset()
+            #self.companyMap[name] = culm
+            resultstuple = tuple([query, decision])
 
-    
-    sys.stdout = stdout_orig
+            self.resultslist.append(resultstuple)
+            self.resultslist.append(tuple(culm))
+            self.resultslist.append(["Articles found: ", len(temp)])
+            
+        print(len(self.resultslist))
+        algo.PhraseMgr.reset()
+        return self.resultslist
+
 
 

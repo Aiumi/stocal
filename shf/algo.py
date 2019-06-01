@@ -16,7 +16,7 @@ class PhraseMgr:
 
     def getLists():
         
-        textroot = 'buzzphrases\\'
+        textroot = 'shf\\buzzphrases\\'
         #listMap = self.listMap
         #list = self.list
         if len(PhraseMgr.listMap) > 0:
@@ -102,11 +102,11 @@ def phraseFreq(text):
     #print('Total Positive: ' + str(totalPositive))
     #print('Total Negative: ' + str(totalNegative))
     
-    decision = 'Hold'
-    if totalPositive + totalNegative >= 6:
-        decision = 'Buy'
-    elif totalPositive + totalNegative <= -6:
-        decision = 'Sell'
+    decision = 'Neutral'
+    if totalPositive + totalNegative >= 50:
+        decision = 'Upwards'
+    elif totalPositive + totalNegative <= -50:
+        decision = 'Downwards'
     
     #print(decision)
     return(totalPositive, totalNegative)

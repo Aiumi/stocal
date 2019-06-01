@@ -1,4 +1,4 @@
-2019-05-18 13:35:17,716 ERROR: Exception on /user/Aiumi [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-05-18 14:00:10,259 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,53 +12,9 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 63, in user
-    return render_template('user.html', user=user, posts=posts)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 47, in block "content"
-    {% block app_content %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\user.html", line 18, in block "app_content"
-    {% include "run_stocks.html" %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\run_stocks.html", line 4, in top-level template code
-    <p><a href="{{ url_for('results') }}">Go</a></p>
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'results'. Did you mean 'register' instead?
-2019-05-18 13:37:07,263 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-05-18 13:37:11,409 ERROR: Exception on /user/Aiumi [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+TypeError: run_stocks() missing 1 required positional argument: 'username'
+2019-05-18 14:01:44,947 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:01:50,075 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -72,49 +28,65 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 63, in user
-    return render_template('user.html', user=user, posts=posts)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 47, in block "content"
-    {% block app_content %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\user.html", line 18, in block "app_content"
-    {% include "run_stocks.html" %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\run_stocks.html", line 4, in top-level template code
-    <p><a href="{{ url_for('results') }}">Go</a></p>
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+TypeError: run_stocks() missing 1 required positional argument: 'username'
+2019-05-18 14:02:39,393 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:02:45,817 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'results'. Did you mean 'register' instead?
-2019-05-18 13:38:25,878 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: run_stocks() missing 1 required positional argument: 'username'
+2019-05-18 14:04:02,619 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:05:43,355 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:06:04,134 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:06:57,262 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:07:09,412 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 123, in run_stocks
+    return render_template('results.html', user, results=value)
+TypeError: render_template() takes 1 positional argument but 2 were given
+2019-05-18 14:07:40,975 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:11:09,082 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:31:10,810 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:32:58,775 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:35:05,920 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:35:09,141 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:36:43,244 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:37:50,539 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:38:32,881 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:48:40,394 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:49:18,028 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:50:28,390 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:51:06,727 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:52:02,473 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:53:41,681 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 14:59:27,265 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 15:27:49,483 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 15:28:26,317 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 15:28:51,286 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 15:29:15,626 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 15:29:45,476 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 15:30:02,445 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 15:30:35,748 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-05-18 15:31:30,233 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]

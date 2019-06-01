@@ -45,7 +45,7 @@ COO refusing to testify
 board of directors refusing to testify
 #
 w -4.0
-department of Justice investigation
+department of justice investigation
 DOJ investigation
 fraud
 tax evasion

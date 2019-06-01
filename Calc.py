@@ -4,7 +4,6 @@ import json
 import urllib.request
 import sys
 import requests
-#from shf import dmsuper
 from shf import algo, myhtml
 import datetime
 

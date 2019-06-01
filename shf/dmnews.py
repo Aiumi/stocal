@@ -33,7 +33,8 @@ class DMNews(dmsuper.DMSuper):
         print(date)
         
         queries = [
-                'Google'
+                'Google',
+                'Facebook'
         ]
         
         for query in queries:
@@ -77,7 +78,7 @@ class DMNews(dmsuper.DMSuper):
                     #log another debug message
                 except:
                     print("Unexpected error:", sys.exc_info())
-                    traceback.print_exc(file=sys.stdout)
+                    #traceback.print_exc(file=sys.stdout)
                     #log a warning message
                     #there is a logger.exception where you can pass an exception
             print('NEWS: ' + query + ' Totals: ' + str(culm))

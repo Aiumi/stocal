@@ -8,9 +8,6 @@ from app.email import send_password_reset_email
 from werkzeug.urls import url_parse
 from shf import dmnews
 from datetime import datetime
-import logging
-
-logging = False
 
 @app.route('/')
 @app.route('/index')
@@ -21,7 +18,6 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    start_logging()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
@@ -123,7 +119,3 @@ def run_stocks():
     value = news.read()
     return render_template('results.html', results=value)
 
-def start_logging():
-    if not logging:
-        logging.basicConfig(filename='flask.log', level=logging.DEBUG)
-    logging.info('Logging started')

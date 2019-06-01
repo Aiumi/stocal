@@ -33,8 +33,7 @@ class DMNews(dmsuper.DMSuper):
         print(date)
         
         queries = [
-                'Google',
-                'Facebook'
+                'Google'
         ]
         
         for query in queries:

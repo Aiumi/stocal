@@ -6,23 +6,46 @@
     <h1>Here's what we found:</h1>
     <br>
     <table class="table table-hover">
-    {% for data in results %}
+    {% for c in results %}
     <tr>
         <td>
-           {{ data[0] }}  
+            {{ c[0] }}  
         </td>
         <td>
-           {{ data[1] }} 
+            {{ c[1] }} 
+        </td>
+        <td>
+            {% set scores = c[3] %}
+                {% set total = scores[0] - scores[1] %}
+                {% if not total %}
+                    UNKWN
+                {% else %}
+                    {{ (((scores[0] / total)*100) + 0.5) | int}}%
+                {% endif %}
+        </td>
+        <td>
+            Today's News:
+            <br>
+            <ul>
+
+                {% set articles = c[2] %}
+                {% for a in articles %}
+                    <li>
+                    {% set scores = a[2] %}
+                    {% set total = scores[0] - scores[1] %}
+                    {% if not total %}
+                        UNKWN: 
+                    {% else %}
+                        {{ (((scores[0] / total)*100) + 0.5) | int}}%: 
+                    {% endif %}
+                    <a href={{ a[1] }}> {{ a[0] }} </a>
+                    </li>
+                
+                {% endfor %}
+            </ul>
         </td>
     </tr>
-    <tr>
-        <td>
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
+    
     {% endfor %}
     </table>
     

@@ -6,7 +6,7 @@ from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswor
 from app.models import User
 from app.email import send_password_reset_email
 from werkzeug.urls import url_parse
-from shf import dmnews
+from shf import dmnews, company_data
 from datetime import datetime
 
 @app.route('/')
@@ -117,5 +117,9 @@ def reset_password(token):
 def run_stocks():
     news = dmnews.DMNews()
     value = news.read()
-    return render_template('results.html', results=value)
+    c_list = list()
+    for c in value:
+        resultslist = [c.get_name(), c.get_trend(), c.get_articles(), c.get_total()]
+        c_list.append(resultslist)
+    return render_template('results.html', results=c_list)
 

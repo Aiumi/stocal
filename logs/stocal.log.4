@@ -1,4 +1,4 @@
-2019-06-15 15:18:38,275 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-06-22 15:16:42,473 ERROR: Exception on /user/Aiumi [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,8 +12,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 124, in run_stocks
-    return render_template('results.html', results=c_list)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 63, in user
+    return render_template('user.html', user=user, posts=posts)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 117, in _render
@@ -26,8 +28,12 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\run_stocks.html", line 145, in template
+    {% endblock %}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
@@ -40,11 +46,33 @@ Traceback (most recent call last):
     {% block content -%}
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 47, in block "content"
     {% block app_content %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 32, in block "app_content"
-    {{ a[0]/a[1]|float }}%:
-TypeError: unsupported operand type(s) for /: 'str' and 'float'
-2019-06-15 15:18:57,949 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-06-15 15:19:05,841 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\user.html", line 18, in block "app_content"
+    {% include "run_stocks.html" %}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\run_stocks.html", line 145, in template
+    {% endblock %}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'.
+2019-06-22 15:17:18,630 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-22 15:20:05,008 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-22 15:30:42,100 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-22 15:30:51,883 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -58,35 +86,36 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 124, in run_stocks
-    return render_template('results.html', results=c_list)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
+    value = news.read()
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\shf\dmnews.py", line 79, in read
+    print(c_data.get_trend())
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\shf\company_data.py", line 16, in get_trend
+    pscore = self.p_score()
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\shf\company_data.py", line 41, in p_score
+    divisor = article[1]
+TypeError: 'company_data' object does not support indexing
+2019-06-22 15:46:43,358 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-22 15:47:15,523 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 47, in block "content"
-    {% block app_content %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 32, in block "app_content"
-    {{ (a[0]|float/a[1]|float) }}%:
-ZeroDivisionError: float division by zero
-2019-06-15 15:19:45,183 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
+    value = news.read()
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\shf\dmnews.py", line 79, in read
+    print(c_data.get_trend())
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\shf\company_data.py", line 23, in get_trend
+    scores = self.get_totals()
+AttributeError: 'company_data' object has no attribute 'get_totals'
+2019-06-22 15:48:35,547 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-22 16:12:13,566 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]

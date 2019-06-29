@@ -9,17 +9,41 @@ class company_data():
     def get_name(self):
         
         return self.name
-    
+                
     def get_trend(self):
         
         decision = 'Neutral'
-        accum = self.get_total()
-        if accum[0] + accum[1] >= 50:
-            decision = 'Trending Upwards'
-        elif accum[0] + accum[1] <= -50:
-            decision = 'Trending Downwards'
+        percentage = self.get_percentage()
+        if percentage == float('inf'):
+            decision = 'UNKNWN'
+        elif percentage >= 0.65:
+            decision = 'Trending Positively'
+        elif percentage <= 0.35:
+            decision = 'Trending Negatively'
+        else:
+            decision = 'Neutral'
+                
         return decision
     
+    def get_percentage(self) -> float:
+        
+        rval = float('inf')
+        scores = self.get_total()
+        total = scores[0] - scores[1]
+        if total:
+            rval = (scores[0] / total)
+        return rval
+    
+    def get_percentage_as_str(self) -> str:
+        
+        percentage = self.get_percentage()
+        if percentage == float('inf'):
+            temp = 'UNKNWN'
+        else:
+            iv = int(((percentage * 100) + 0.5))
+            temp = str(iv)
+        return temp
+        
     def get_articles(self):
         
         return self.articles

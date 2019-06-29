@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
     <head>
         <style>
             body{
@@ -54,13 +59,12 @@
         <table class="table table-hover table-bordered results">
           <thead>
             <tr>
-              <th class="col-md-5 col-xs-5">Watchlist</th>
+              <th class="col-md-5 col-xs-5">Following</th>
               <th class="col-md-4 col-xs-4">X</th>
               <th class="col-md-3 col-xs-3">Y</th>
             </tr>
           </thead>
           <tbody>
-
           </tbody>
         </table>
       </div>
@@ -73,7 +77,7 @@
         <table class="table table-hover table-bordered results">
           <thead>
             <tr>
-              <th class="col-md-5 col-xs-5">Companies</th>
+              <th class="col-md-5 col-xs-5">Company</th>
               <th class="col-md-4 col-xs-4">X</th>
               <th class="col-md-3 col-xs-3">Y</th>
             </tr>
@@ -138,11 +142,5 @@
       <!--- Company Search --->
     </div>
 
-    <hr>
-    <h1>Your Dashboard</h1>
-    <p><a href="{{ url_for('run_stocks') }}">Go</a></p> 
-
- 
-    
-
+{% endblock %}
 

@@ -1,4 +1,4 @@
-2019-06-15 15:08:19,735 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-06-15 15:28:50,120 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -40,11 +40,31 @@ Traceback (most recent call last):
     {% block content -%}
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 47, in block "content"
     {% block app_content %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 32, in block "app_content"
-    {{ (a[0]/a[1])|format(value|float) }}%:
-TypeError: unsupported operand type(s) for /: 'str' and 'str'
-2019-06-15 15:09:05,929 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-06-15 15:09:17,461 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 30, in block "app_content"
+    {{ float(scores[0]) }}:
+jinja2.exceptions.UndefinedError: 'float' is undefined
+2019-06-15 15:35:05,948 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 15:35:14,886 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 119, in run_stocks
+    value = news.read()
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\shf\dmnews.py", line 55, in read
+    totals = [float(0, 0)]
+TypeError: float() takes at most 1 argument (2 given)
+2019-06-15 15:35:42,338 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 15:35:52,110 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -86,7 +106,13 @@ Traceback (most recent call last):
     {% block content -%}
   File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 47, in block "content"
     {% block app_content %}
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 32, in block "app_content"
-    {{ (a[0] // a[1]) }}%:
-TypeError: unsupported operand type(s) for //: 'str' and 'str'
-2019-06-15 15:10:58,543 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 30, in block "app_content"
+    {{ float(scores[0]) }}:
+jinja2.exceptions.UndefinedError: 'float' is undefined
+2019-06-15 15:36:15,481 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 15:37:51,268 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 15:39:16,059 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 15:43:47,026 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 16:02:29,576 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 16:07:02,428 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 16:11:24,025 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]

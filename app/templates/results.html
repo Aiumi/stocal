@@ -2,45 +2,86 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-
+    
     <h1>Here's what we found:</h1>
     <br>
     <table class="table table-hover">
     {% for c in results %}
+    
+    {% if c[1] == 'Trending Positively' %}
+        {% set trend = '#00b300' %}
+    {% elif c[1] == 'Trending Negatively' %}
+        {% set trend = '#ff0000' %}
+    {% else %}
+        {% set trend = 'Neutral' %}
+    {% endif %}
+    
     <tr>
         <td>
-            {{ c[0] }}  
+            <span style='font-weight: bold'>
+            
+            {{ c[0] }}  <!-- Company name -->
+            
+            </span>
+            
         </td>
+            
         <td>
-            {{ c[1] }} 
+            <!-- Trend -->
+            <span style='color: {{ trend }}'>
+            
+            {{ c[1] }}
+            
+            </span>
+            
         </td>
+            
         <td>
-            {% set scores = c[3] %}
-                {% set total = scores[0] - scores[1] %}
-                {% if not total %}
-                    UNKWN
-                {% else %}
-                    {{ (((scores[0] / total)*100) + 0.5) | int}}%
-                {% endif %}
+            <span style='color: {{ trend }}'>
+            
+            {{ c[2] }}%  <!-- Overall percentage score -->
+            
+            </span>
         </td>
+            
         <td>
             Today's News:
             <br>
             <ul>
 
-                {% set articles = c[2] %}
+                {% set articles = c[3] %}
                 {% for a in articles %}
+    
                     <li>
                     {% set scores = a[2] %}
                     {% set total = scores[0] - scores[1] %}
+                    
                     {% if not total %}
                         UNKWN: 
                     {% else %}
-                        {{ (((scores[0] / total)*100) + 0.5) | int}}%: 
+                    
+                        {% set i_score = (((scores[0] / total)*100) + 0.5) | int %}
+                        
+                        {% if i_score >= 65 %}
+                            {% set i_trend = '#00b300' %}
+                        {% elif i_score <= 35 %}
+                            {% set i_trend = '#ff0000' %}
+                        {% else %}
+                            {% set i_trend = 'Neutral' %}
+                        {% endif %}
+                    
+                        <span style='color: {{ i_trend }}'>
+                        
+                        {{ i_score }}%: 
+                        
+                        </span>
+                        
                     {% endif %}
+
                     <a href={{ a[1] }}> {{ a[0] }} </a>
+                    
                     </li>
-                
+                    
                 {% endfor %}
             </ul>
         </td>

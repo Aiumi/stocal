@@ -1,4 +1,4 @@
-2019-06-15 15:21:38,910 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-06-22 16:58:40,333 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -30,8 +30,8 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 30, in template
-    {{ scores[1] = 0.001 }}:
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 12, in template
+    {% set trend = <span style='color: #00b300'> %}
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
     return Parser(self, source, name, encode_filename(filename)).parse()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
@@ -56,24 +56,43 @@ Traceback (most recent call last):
     rv = self.parse_statement()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
     return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 199, in parse_for
-    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 213, in parse_if
+    'name:endif'))
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
     result = self.subparse(end_tokens)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
     rv = self.parse_statement()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
     return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 213, in parse_if
-    'name:endif'))
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
-    result = self.subparse(end_tokens)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 876, in subparse
-    self.stream.expect('variable_end')
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\lexer.py", line 384, in expect
-    self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
-2019-06-15 15:23:13,294 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-06-15 15:24:33,933 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-06-15 15:25:23,136 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-06-15 15:28:40,618 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 181, in parse_set
+    expr = self.parse_tuple()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 620, in parse_tuple
+    args.append(parse())
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 546, in parse_unary
+    node = self.parse_primary()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 583, in parse_primary
+    self.fail("unexpected '%s'" % describe_token(token), token.lineno)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: unexpected '<'
+2019-06-22 16:59:53,269 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]

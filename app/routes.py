@@ -56,11 +56,8 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
-    return render_template('user.html', user=user, posts=posts)
+
+    return render_template('user.html', user=user)
 
 @app.before_request
 def before_request():
@@ -119,7 +116,11 @@ def run_stocks():
     value = news.read()
     c_list = list()
     for c in value:
-        resultslist = [c.get_name(), c.get_trend(), c.get_articles(), c.get_total()]
+        resultslist = [c.get_name(), c.get_trend(), c.get_percentage_as_str(), c.get_articles()]
         c_list.append(resultslist)
     return render_template('results.html', results=c_list)
 
+#currently not using selection()
+@app.route('/selection/')
+def selection():
+	return render_template('selection.html')

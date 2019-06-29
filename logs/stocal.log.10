@@ -1,4 +1,4 @@
-2019-06-15 13:29:06,344 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-06-15 15:11:11,051 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,109 +12,82 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 125, in run_stocks
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 124, in run_stocks
     return render_template('results.html', results=c_list)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 134, in render_template
-    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\loaders.py", line 125, in load
-    code = environment.compile(source, name, filename)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 591, in compile
-    self.handle_exception(exc_info, source_hint=source_hint)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 21, in template
-    {% set headlines = {{ c[2] }} %}
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
-    return Parser(self, source, name, encode_filename(filename)).parse()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
-    result = nodes.Template(self.subparse(), lineno=1)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 268, in parse_block
-    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
-    result = self.subparse(end_tokens)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 199, in parse_for
-    body = self.parse_statements(('name:endfor', 'name:else'))
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
-    result = self.subparse(end_tokens)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 181, in parse_set
-    expr = self.parse_tuple()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 620, in parse_tuple
-    args.append(parse())
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
-    return self.parse_condexpr()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
-    expr1 = self.parse_or()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 450, in parse_or
-    left = self.parse_and()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 459, in parse_and
-    left = self.parse_not()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 470, in parse_not
-    return self.parse_compare()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
-    expr = self.parse_math1()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
-    left = self.parse_concat()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
-    args = [self.parse_math2()]
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
-    left = self.parse_pow()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
-    left = self.parse_unary()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 546, in parse_unary
-    node = self.parse_primary()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 581, in parse_primary
-    node = self.parse_dict()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 661, in parse_dict
-    key = self.parse_expression()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
-    return self.parse_condexpr()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
-    expr1 = self.parse_or()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 450, in parse_or
-    left = self.parse_and()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 459, in parse_and
-    left = self.parse_not()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 470, in parse_not
-    return self.parse_compare()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
-    expr = self.parse_math1()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
-    left = self.parse_concat()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
-    args = [self.parse_math2()]
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
-    left = self.parse_pow()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
-    left = self.parse_unary()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 546, in parse_unary
-    node = self.parse_primary()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 581, in parse_primary
-    node = self.parse_dict()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\parser.py", line 662, in parse_dict
-    self.stream.expect('colon')
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\lexer.py", line 384, in expect
-    self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
-2019-06-15 13:31:08,103 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-06-15 13:35:29,052 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-06-15 13:40:38,680 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 47, in block "content"
+    {% block app_content %}
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 32, in block "app_content"
+    {{ (a[0]/a[1]|float) }}%:
+TypeError: unsupported operand type(s) for /: 'str' and 'float'
+2019-06-15 15:11:37,687 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 15:11:50,558 ERROR: Exception on /run_stocks [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 124, in run_stocks
+    return render_template('results.html', results=c_list)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\base.html", line 47, in block "content"
+    {% block app_content %}
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\templates\results.html", line 32, in block "app_content"
+    {{ (a[0]|float/a[1]|float) }}%:
+ZeroDivisionError: float division by zero
+2019-06-15 15:17:23,122 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-06-15 15:18:26,689 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]

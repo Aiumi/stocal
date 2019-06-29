@@ -30,8 +30,9 @@ class DMNews(dmsuper.DMSuper):
         print(date)
         
         queries = [
-                'Google',
-                'Facebook'
+                'Uber',
+                'Lyft',
+                'Nintendo'
         ]
         
         for query in queries:
@@ -41,7 +42,8 @@ class DMNews(dmsuper.DMSuper):
             
             url = ('https://newsapi.org/v2/everything?'
                    'q=' + query + '&'
-                   'domains=apnews.com,cnn.com,news.google.com,businessinsider.com,msnbc.com,time.com,economist.com,fortune.com,business.financialpost.com,cnbc.com,wsj.com,nytimes.com,bloomberg.com,bbc.com,reuters.com,apnews.com,ft.com&'
+                   'domains=apnews.com,cnn.com,news.google.com,businessinsider.com,fool.com,msnbc.com,time.com,economist.com,fortune.com,business.financialpost.com,cnbc.com,wsj.com,nytimes.com,bloomberg.com,bbc.com,reuters.com,apnews.com,ft.com,techcrunch.com,techradar.com&'
+                   'language=en&'
                    'from=' + date + '&'
                    'sortBy=relevancy&'
                    'pageSize=100&'

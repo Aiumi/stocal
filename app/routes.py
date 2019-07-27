@@ -113,7 +113,7 @@ def reset_password(token):
 @app.route('/run_stocks')
 def run_stocks():
     news = dmnews.DMNews()
-    value = news.read()
+    value = news.read(["Amazon", "Apple", "Netflix"])
     c_list = list()
     for c in value:
         resultslist = [c.get_name(), c.get_trend(), c.get_percentage_as_str(), c.get_articles()]

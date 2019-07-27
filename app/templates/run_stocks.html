@@ -1,4 +1,3 @@
-{% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block head %}
@@ -9,6 +8,9 @@
 <h1>Your Dashboard</h1>
     
 <div id="container">
+  <span>
+  <button type="button" class="btn btn-outline-success run"><a href="{{ url_for('run_stocks') }}">Analyze</a></button>
+  </span>
   <!--- Watchlist --->
   <span class="watchlist-top">
   <button type="button" class="btn btn-outline-success remove-watchlist">Remove From Watchlist</button>
@@ -109,9 +111,6 @@
     </table>
   </div>
 </div>
-
-<hr>
-<h1><a href="{{ url_for('run_stocks') }}">GO</a></h1>
 
 {% endblock %}
     

@@ -22,18 +22,18 @@ class DMNews(dmsuper.DMSuper):
         
         return .3
     
-    def read(self):
+    def read(self, queries):
         
         #newsapi = NewsApiClient(api_key='bf87dc70b9af400d87207c4e23480ded')
         
         date = datetime.datetime.today().strftime('%Y-%m-%d')
         print(date)
         
-        queries = [
+        '''queries = [
                 'Uber',
                 'Lyft',
                 'Nintendo'
-        ]
+        ]'''
         
         for query in queries:
             

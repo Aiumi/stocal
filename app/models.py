@@ -44,6 +44,16 @@ class User(UserMixin, db.Model):
             return
         return User.query.get(id)
 
+class Companies(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    company_name = db.Column(db.String(64), index=True, unique=True)
+    
+    def set_company_name(self, name):
+        self.company_name = name
+        
+    def get_company_name(self):
+        return self.company_name
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))

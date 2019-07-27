@@ -18,29 +18,20 @@
     
     <tr>
         <td>
-            <span style='font-weight: bold'>
-            
-            {{ c[0] }}  <!-- Company name -->
-            
-            </span>
-            
-        </td>
-            
-        <td>
-            <!-- Trend -->
-            <span style='color: {{ trend }}'>
-            
-            {{ c[1] }}
-            
-            </span>
-            
+            <span style='font-weight: bold'>        
+            {{ c[0] }}<!-- Company name -->    
+            </span>       
         </td>
             
         <td>
             <span style='color: {{ trend }}'>
+            {{ c[1] }}<!-- Trend -->
+            </span>
+        </td>
             
-            {{ c[2] }}%  <!-- Overall percentage score -->
-            
+        <td>
+            <span style='color: {{ trend }}'>
+            {{ c[2] }}%<!-- Overall percentage score -->
             </span>
         </td>
             

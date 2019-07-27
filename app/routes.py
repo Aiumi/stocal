@@ -56,8 +56,8 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-
-    return render_template('user.html', user=user)
+    c_list = ["Amazon", "Apple", "Facebook", "IBM", "Intel", "Microsoft", "Netflix", "Oracle", "Samsung"]
+    return render_template('user.html', user=user, c_list = c_list)
 
 @app.before_request
 def before_request():
@@ -119,8 +119,3 @@ def run_stocks():
         resultslist = [c.get_name(), c.get_trend(), c.get_percentage_as_str(), c.get_articles()]
         c_list.append(resultslist)
     return render_template('results.html', results=c_list)
-
-#currently not using selection()
-@app.route('/selection/')
-def selection():
-	return render_template('selection.html')

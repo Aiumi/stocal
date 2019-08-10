@@ -1,22 +1,20 @@
-body{
+body {
   padding:20px 20px;
+  font-family: 'Lato', sans-serif;
+  background: #333; 
+  color: white;
 }
 
-.userlist {
-  margin-top: 10px;
+.flex-container {
+  display: flex;
 }
 
-.form-group {
-  margin-bottom: none;
+.btn {
+  background-color: #474747;
 }
 
-.companieslist-top {
-  display: inline-block;
-  margin-bottom: -10px;
-}
-
-.search {
-  float: right;
+.table-hover> tbody> tr:hover{
+    background-color: #474747;
 }
 
 .results tr[visible='false'],
@@ -33,7 +31,7 @@ body{
   color:#ccc;
 }
 
-/* Styling Checkbox Starts */
+/* Styling Checkbox */
 .checkbox-label {
 display: block;
 position: relative;

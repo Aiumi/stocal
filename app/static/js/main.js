@@ -1,5 +1,10 @@
 $(document).ready(function() {
   
+  $(".analyze").click(function() {
+    alert("hello again");
+    console.log("hello");
+  });
+
   $(".search").keyup(function() {
     var searchTerm = $(".search").val();
     var listItem = $("#companieslist tbody").children("tr");
@@ -34,8 +39,8 @@ $(document).ready(function() {
       $(".no-result").hide();
     }
   });
-  
-  /* Add and remove companies from watchlist */
+
+  // Add and remove companies from watchlist 
   
   $(".remove-watchlist").click(function() {
     $("#watchlist tbody").find('input[name="record"]').each(function() {
@@ -52,7 +57,7 @@ $(document).ready(function() {
     });
   });
 
-  // Find and remove selected table rows
+  // Find and remove selected table rows 
   $(".add-watchlist").click(function() {
     $("#companieslist tbody").find('input[name="record"]').each(function() {
         if ($(this).is(":checked")) {
@@ -67,4 +72,7 @@ $(document).ready(function() {
         }
     });
   });
+
 });
+
+

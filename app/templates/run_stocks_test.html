@@ -1,0 +1,144 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block head %}
+{% endblock %}
+
+{% block app_content %}
+    
+<h1>Your Dashboard</h1>
+    
+<div id="container">
+<div class="row">
+<!--- Watchlist --->
+<div class="col-xs-6">
+  <div class="form-group pull-left">
+  <div class="watchlist-top flex-container">
+  <!--<button type="button" class="btn btn-outline-success run" id="analyze"><a href="{{ url_for('run_stocks') }}">Analyze</a></button>-->
+  <button type="button" class="btn btn-outline-success analyze">Analyze</button>
+  <button type="button" class="btn btn-outline-success remove-watchlist">Remove</button>
+  <button type="button" class="btn btn-outline-success try">Try</button>
+  </div>
+  <div class="watch">
+    <table class="table table-inverse table-hover table-bordered results" id="watchlist">
+      <thead>
+        <tr>
+          <th style="width: 7.5%">Remove</th>
+          <th style="width: 92.5%">Following</th>
+        </tr>
+      </thead>
+      <tbody id="watchtest">
+
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+<!--- Companies --->
+  <div class="col-xs-6">
+  <div class="company-search">
+    <div class="form-group pull-left">
+      <div class="companieslist-top flex-container">
+      <input type="text" class="search form-control" placeholder="Search a company...">
+      <button type="button" class="btn btn-outline-success add-watchlist">Add</button>
+      </div>
+    </div>
+    <!--- Company List --->
+    <span class="counter pull-right"></span>
+    <table class="table table-inverse table-hover table-bordered results" id="companieslist">
+      <thead>
+        <tr>
+          <th style="width: 7.5%">Select</th>
+          <th style="width: 92.5%">Company</th>
+        </tr>
+        <tr class="warning no-result">
+          <td colspan="4"><i class="fa fa-warning"></i> No results</td>
+        </tr>
+      </thead>
+      <tbody id="companiestest">
+      
+        <tr>
+          <td>
+            <label class="checkbox-label">
+              <input type="checkbox" name="record">
+              <span class="checkbox-custom"></span>
+            </label>
+          </td>
+          <td class="selectedCompany"><strong>$AMZN</strong> Amazon</td>
+        </tr>
+        <tr>
+          <td>
+            <label class="checkbox-label">
+              <input type="checkbox" name="record">
+              <span class="checkbox-custom"></span>
+            </label>
+          </td>
+          <td class="selectedCompany"><strong>$AAPL</strong> Apple</td>
+        </tr>   
+        <tr>
+          <td>
+            <label class="checkbox-label">
+              <input type="checkbox" name="record">
+              <span class="checkbox-custom"></span>
+            </label>
+          </td>
+          <td class="selectedCompany"><strong>$FB</strong> Facebook</td>
+        </tr>
+        <tr>
+          <td>
+            <label class="checkbox-label">
+              <input type="checkbox" name="record">
+              <span class="checkbox-custom"></span>
+            </label>
+          </td>
+          <td class="selectedCompany"><strong>$GOOGL</strong> Google</td>
+        </tr>
+        <tr>
+          <td>
+            <label class="checkbox-label">
+              <input type="checkbox" name="record">
+              <span class="checkbox-custom"></span>
+            </label>
+          </td>
+          <td class="selectedCompany"><strong>$LYFT</strong> Lyft</td>
+        </tr>
+        <tr>
+          <td>
+            <label class="checkbox-label">
+              <input type="checkbox" name="record">
+              <span class="checkbox-custom"></span>
+            </label>
+          </td>
+          <td class="selectedCompany"><strong>$MSFT</strong> Microsoft</td>
+        </tr>
+        <tr>
+          <td>
+            <label class="checkbox-label">
+              <input type="checkbox" name="record">
+              <span class="checkbox-custom"></span>
+            </label>
+          </td>
+          <td class="selectedCompany"><strong>$NFLX</strong> Netflix</td>
+        </tr>
+        <tr>
+          <td>
+            <label class="checkbox-label">
+              <input type="checkbox" name="record">
+              <span class="checkbox-custom"></span>
+            </label>
+          </td>
+          <td class="selectedCompany"><strong>$UBER</strong> Uber</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}
+    
+
+
+
+

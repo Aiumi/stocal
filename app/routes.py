@@ -1,5 +1,4 @@
-from flask import request
-from flask import render_template, flash, redirect, url_for
+from flask import request, render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm
@@ -113,7 +112,7 @@ def reset_password(token):
 @app.route('/run_stocks')
 def run_stocks():
     news = dmnews.DMNews()
-    value = news.read(["Amazon", "Apple", "Netflix"])
+    value = news.read(["Uber", "Lyft", "Netflix"])
     c_list = list()
     for c in value:
         resultslist = [c.get_name(), c.get_trend(), c.get_percentage_as_str(), c.get_articles()]

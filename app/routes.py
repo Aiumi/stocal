@@ -55,7 +55,7 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    c_list = ["Amazon", "Apple", "Facebook", "IBM", "Intel", "Microsoft", "Netflix", "Oracle", "Samsung"]
+    c_list = ["Amazon", "Apple", "Facebook", "Lyft", "Uber", "Microsoft", "Netflix", "Oracle", "Samsung"]
     return render_template('user.html', user=user, c_list = c_list)
 
 @app.before_request

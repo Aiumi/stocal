@@ -1,9 +1,10 @@
 $(document).ready(function() {
-  
+  /*
   $(".analyze").click(function() {
     alert("hello again");
     console.log("hello");
   });
+  */
 
   $(".search").keyup(function() {
     var searchTerm = $(".search").val();

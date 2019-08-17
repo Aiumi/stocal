@@ -13,7 +13,7 @@
 <div class="col-xs-6">
   <div class="form-group pull-left">
   <div class="watchlist-top flex-container">
-  <button type="button" class="btn btn-outline-success run" id="analyze"><a href="{{ url_for('run_stocks') }}">Analyze</a></button>
+  <!--<button type="button" class="btn btn-outline-success run" id="analyze"><a href="{{ url_for('run_stocks') }}">Analyze</a></button>-->
   <button type="button" class="btn btn-outline-success analyze">Analyze</button>
   <button type="button" class="btn btn-outline-success remove-watchlist">Remove</button>
   </div>
@@ -57,7 +57,7 @@
       
         {% for c in c_list %}
 
-        <tr>
+        <tr data-hidden="false">
               <td>
                 <label class="checkbox-label">
                   <input type="checkbox" name="record">
@@ -69,10 +69,29 @@
 
         {% endfor %}
         
+        {% for h in h_list %}
+
+        <tr visible="false" data-hidden="true">
+              <td>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="record">
+                  <span class="checkbox-custom"></span>
+                </label>
+              </td>
+              <td class="selectedCompany">{{ h }}</td>
+        </tr>
+
+        {% endfor %}
+        
       </tbody>
     </table>
   </div>
   </div>
+</div>
+
+<div class="loader"></div>
+<div id="results" class="animate-bottom">
+
 </div>
 </div>
 

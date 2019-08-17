@@ -1,11 +1,30 @@
 $(document).ready(function() {
-  /*
+  
+  // Analyze watchlist
+  
   $(".analyze").click(function() {
-    alert("hello again");
     console.log("hello");
+    var nameArr = {}
+    var i = 0
+    $("#watchtest tr").each(function(index){
+      name = $(this).find(".selectedCompany").text()
+      name = $.trim(name)
+      nameArr[i] = name;
+      i = i + 1;
+    });
+    console.log(nameArr);
+    
+    $.post("/run_stocks", nameArr, function(data, status){
+      document.getElementById("results").innerHTML = data;
+      
+      $('html, body').animate({
+        scrollTop: $('#results').offset().top
+        }, 'slow');
+    });
   });
-  */
-
+  
+  // Search Function
+  
   $(".search").keyup(function() {
     var searchTerm = $(".search").val();
     var listItem = $("#companieslist tbody").children("tr");
@@ -26,13 +45,17 @@ $(document).ready(function() {
       .each(function(e) {
         $(this).attr("visible", "false");
       });
-
+    
     $("#companieslist tbody tr:containsi('" + searchSplit + "')").each(function(e) {
-      $(this).attr("visible", "true");
+      if (searchSplit == "" && $(this).attr("data-hidden") == "true") {
+        $(this).attr("visible", "false");
+      } else {
+        $(this).attr("visible", "true");
+      }
     });
 
     var resultsCount = $('#companieslist tbody tr[visible="true"]').length;
-    $(".counter").text(resultsCount + " companies(s)");
+    $(".counter").text(resultsCount + " companies");
 
     if (resultsCount == "0") {
       $(".no-result").show();

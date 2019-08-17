@@ -56,7 +56,8 @@ def register():
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     c_list = ["Amazon", "Apple", "Facebook", "Lyft", "Uber", "Microsoft", "Netflix", "Oracle", "Samsung"]
-    return render_template('user.html', user=user, c_list = c_list)
+    h_list = ["Disney", "Nvidia", "AMD"]
+    return render_template('user.html', user=user, c_list=c_list, h_list=h_list)
 
 @app.before_request
 def before_request():
@@ -109,10 +110,25 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
-@app.route('/run_stocks')
+@app.route('/temp_run', methods=['POST'])
+def temp_run():
+    if request.method == 'POST':
+        print("success")
+        names = request.values
+        namesList = list()
+        for key, val in names.items():
+            namesList.append( val )
+        print(namesList)
+    return "goodbye"
+
+@app.route('/run_stocks', methods=['POST'])
 def run_stocks():
     news = dmnews.DMNews()
-    value = news.read(["Uber", "Lyft", "Netflix"])
+    names = request.values
+    namesList = list()
+    for key, val in names.items():
+        namesList.append(val)
+    value = news.read(namesList)
     c_list = list()
     for c in value:
         resultslist = [c.get_name(), c.get_trend(), c.get_percentage_as_str(), c.get_articles()]

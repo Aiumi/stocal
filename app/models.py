@@ -1,11 +1,10 @@
 from datetime import datetime
-from app import db, login
+from app import app, db, login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from hashlib import md5
 from time import time
 import jwt
-from app import app
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -44,9 +43,19 @@ class User(UserMixin, db.Model):
             return
         return User.query.get(id)
 
-class Companies(db.Model):
+class Company(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    company_name = db.Column(db.String(64), index=True, unique=True)
+    company_symbol = db.Column(db.String(64), index=True, unique=True)
+    company_name = db.Column(db.String(64), index=True, unique=False)
+    
+    def __repr__(self):
+        return '<Symbol {} Name {}>'.format(self.company_symbol, self.company_name)
+    
+    def set_company_symbol(self, symbol):
+        self.company_symbol = symbol
+        
+    def get_company_symbol(self):
+        return self.company_symbol
     
     def set_company_name(self, name):
         self.company_name = name

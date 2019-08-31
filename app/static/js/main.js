@@ -55,7 +55,7 @@ $(document).ready(function() {
     });
 
     var resultsCount = $('#companieslist tbody tr[visible="true"]').length;
-    $(".counter").text(resultsCount + " companies");
+    $(".counter").text(resultsCount + " compan(ies)");
 
     if (resultsCount == "0") {
       $(".no-result").show();

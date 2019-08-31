@@ -40,8 +40,12 @@ class DMNews(dmsuper.DMSuper):
             c_data = company_data.company_data(query)
             self.companieslist.append(c_data)
             
+            print("***")
+            name = c_data.get_stripped_name()
+            print(">>>" + name + "<<<")
+            
             url = ('https://newsapi.org/v2/everything?'
-                   'q=' + query + '&'
+                   'q=' + name + '&'
                    'domains=apnews.com,cnn.com,news.google.com,businessinsider.com,fool.com,msnbc.com,time.com,economist.com,fortune.com,business.financialpost.com,cnbc.com,wsj.com,nytimes.com,bloomberg.com,bbc.com,reuters.com,apnews.com,ft.com,techcrunch.com,techradar.com&'
                    'language=en&'
                    'from=' + date + '&'

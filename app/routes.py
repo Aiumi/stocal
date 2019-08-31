@@ -2,10 +2,11 @@ from flask import request, render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm
-from app.models import User
+from app.models import User, Company
 from app.email import send_password_reset_email
 from werkzeug.urls import url_parse
 from shf import dmnews, company_data
+import pandas as pd
 from datetime import datetime
 
 @app.route('/')
@@ -55,8 +56,13 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    c_list = ["Amazon", "Apple", "Facebook", "Lyft", "Uber", "Microsoft", "Netflix", "Oracle", "Samsung"]
-    h_list = ["Disney", "Nvidia", "AMD"]
+    companies = Company.query.all()
+    c_list = list()
+    h_list = list()
+
+    for i in companies:
+        h_list.append(i.company_name)
+
     return render_template('user.html', user=user, c_list=c_list, h_list=h_list)
 
 @app.before_request
@@ -110,17 +116,6 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
-@app.route('/temp_run', methods=['POST'])
-def temp_run():
-    if request.method == 'POST':
-        print("success")
-        names = request.values
-        namesList = list()
-        for key, val in names.items():
-            namesList.append( val )
-        print(namesList)
-    return "goodbye"
-
 @app.route('/run_stocks', methods=['POST'])
 def run_stocks():
     news = dmnews.DMNews()
@@ -134,3 +129,27 @@ def run_stocks():
         resultslist = [c.get_name(), c.get_trend(), c.get_percentage_as_str(), c.get_articles()]
         c_list.append(resultslist)
     return render_template('results.html', results=c_list)
+
+@app.route('/company_list')
+def company_list():
+    nasdaqURL = 'https://www.nasdaq.com/screening/companies-by-name.aspx?letter=0&exchange=nasdaq&render=download'
+    nyseURL = 'https://www.nasdaq.com/screening/companies-by-name.aspx?letter=0&exchange=nyse&render=download'
+    df1 = pd.read_csv(nasdaqURL, sep=',')
+    df2 = pd.read_csv(nyseURL, sep=',')
+    
+    c_dict = {}
+    
+    for s in df1.values:
+        c_dict.update({s[0] : s[1]})
+    
+    for s in df2.values:
+        c_dict.update({s[0] : s[1]})
+        
+    count = 0
+    for k, v in c_dict.items():
+        c = Company(company_symbol=k, company_name=v)
+        
+        #db.session.add(c)
+    #db.session.commit()
+    rows = db.session.query(Company).count()
+    return "Committed" + str(rows)

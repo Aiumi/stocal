@@ -10,12 +10,22 @@ class company_data():
         
         return self.name
                 
+    def get_stripped_name(self):
+        
+        x = self.name.split()
+        s = x[0]
+        punc = (",", ".")
+        if s.endswith(punc):
+            ls = len(s)
+            s = s[0:ls - 1]
+        return s
+        
     def get_trend(self):
         
         decision = 'Neutral'
         percentage = self.get_percentage()
         if percentage == float('inf'):
-            decision = 'UNKNWN'
+            decision = 'UNKNOWN'
         elif percentage >= 0.65:
             decision = 'Trending Positively'
         elif percentage <= 0.35:
@@ -38,7 +48,7 @@ class company_data():
         
         percentage = self.get_percentage()
         if percentage == float('inf'):
-            temp = 'UNKNWN'
+            temp = 'UNKNOWN'
         else:
             iv = int(((percentage * 100) + 0.5))
             temp = str(iv)

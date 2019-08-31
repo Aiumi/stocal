@@ -5,6 +5,10 @@ body {
   color: white;
 }
 
+.watchlist-top {
+  margin-bottom: 15px;
+}
+
 .flex-container {
   display: flex;
 }

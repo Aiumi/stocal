@@ -132,7 +132,11 @@ def run_stocks():
 
 @app.route('/company_list')
 def company_list():
-    try:    
+    try: 
+        rows = Company.query.all()
+        for row in rows:
+            db.session.delete(row)
+        db.session.commit()
         nasdaqURL = 'https://datahub.io/core/nasdaq-listings/r/nasdaq-listed.csv'
         nyseURL = 'https://datahub.io/core/nyse-other-listings/r/nyse-listed.csv'
         df1 = pd.read_csv(nasdaqURL, sep=',')
@@ -143,10 +147,8 @@ def company_list():
         for s in df1.values:
             print(s)
             c_dict.update({s[0] : s[1]})
-            break
         
         for s in df2.values:
-            break
             c_dict.update({s[0] : s[1]})
             
         count = 0

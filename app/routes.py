@@ -137,8 +137,8 @@ def company_list():
         for row in rows:
             db.session.delete(row)
         db.session.commit()
-        nasdaqURL = 'https://datahub.io/core/nasdaq-listings/r/nasdaq-listed.csv'
-        nyseURL = 'https://datahub.io/core/nyse-other-listings/r/nyse-listed.csv'
+        nasdaqURL = 'https://old.nasdaq.com/screening/companies-by-name.aspx?letter=0&exchange=nasdaq&render=download'
+        nyseURL = 'https://old.nasdaq.com/screening/companies-by-name.aspx?letter=0&exchange=nyse&render=download'
         df1 = pd.read_csv(nasdaqURL, sep=',')
         df2 = pd.read_csv(nyseURL, sep=',')
         

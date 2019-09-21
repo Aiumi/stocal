@@ -149,7 +149,7 @@ def company_list():
     for k, v in c_dict.items():
         c = Company(company_symbol=k, company_name=v)
         
-        #db.session.add(c)
-    #db.session.commit()
+        db.session.add(c)
+    db.session.commit()
     rows = db.session.query(Company).count()
     return "Committed" + str(rows)

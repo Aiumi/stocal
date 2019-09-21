@@ -153,7 +153,11 @@ def company_list():
             
         count = 0
         for k, v in c_dict.items():
-            c = Company(company_symbol=k, company_name=v)
+            temp = v
+            if len(temp) > 64:
+                temp = temp[0:63]
+                temp = temp + "..."
+            c = Company(company_symbol=k, company_name=temp)
             
             db.session.add(c)
         db.session.commit()

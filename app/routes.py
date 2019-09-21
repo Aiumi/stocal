@@ -155,7 +155,7 @@ def company_list():
         for k, v in c_dict.items():
             temp = v
             if len(temp) > 64:
-                temp = temp[0:63]
+                temp = temp[0:60]
                 temp = temp + "..."
             c = Company(company_symbol=k, company_name=temp)
             

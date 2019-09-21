@@ -132,24 +132,31 @@ def run_stocks():
 
 @app.route('/company_list')
 def company_list():
-    nasdaqURL = 'https://datahub.io/core/nasdaq-listings/r/nasdaq-listed.csv'
-    nyseURL = 'https://datahub.io/core/nyse-other-listings/r/nyse-listed.csv'
-    df1 = pd.read_csv(nasdaqURL, sep=',')
-    df2 = pd.read_csv(nyseURL, sep=',')
-    
-    c_dict = {}
-    
-    for s in df1.values:
-        c_dict.update({s[0] : s[1]})
-    
-    for s in df2.values:
-        c_dict.update({s[0] : s[1]})
+    try:    
+        nasdaqURL = 'https://datahub.io/core/nasdaq-listings/r/nasdaq-listed.csv'
+        nyseURL = 'https://datahub.io/core/nyse-other-listings/r/nyse-listed.csv'
+        df1 = pd.read_csv(nasdaqURL, sep=',')
+        df2 = pd.read_csv(nyseURL, sep=',')
         
-    count = 0
-    for k, v in c_dict.items():
-        c = Company(company_symbol=k, company_name=v)
+        c_dict = {}
         
-        db.session.add(c)
-    db.session.commit()
-    rows = db.session.query(Company).count()
-    return "Committed" + str(rows)
+        for s in df1.values:
+            print(s)
+            c_dict.update({s[0] : s[1]})
+            break
+        
+        for s in df2.values:
+            break
+            c_dict.update({s[0] : s[1]})
+            
+        count = 0
+        for k, v in c_dict.items():
+            c = Company(company_symbol=k, company_name=v)
+            
+            db.session.add(c)
+        db.session.commit()
+        rows = db.session.query(Company).count()
+        return "Committed" + str(rows)
+    except Exception as inst:
+        print(inst)
+        return str(inst)

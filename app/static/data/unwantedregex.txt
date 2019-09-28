@@ -1,0 +1,17 @@
+(.*)[\\.,:;\\(\\)](.*)
+Company
+Corporation
+Incorporated
+Technologies
+Limited
+Holdings
+Group
+Walt
+Inc
+Ltd
+Corp
+LLC
+plc
+ETF
+com
+The

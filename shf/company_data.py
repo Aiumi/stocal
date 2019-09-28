@@ -1,25 +1,57 @@
+import re
+from pathlib import Path
+
 class company_data():
+    
+    pNameregex = ''
+    cpNameregex = re.compile('')
+    pPuncregex = ''
+    cpPuncregex = re.compile('')
     
     def __init__(self, name):
         
         self.name = name
         self.articles = list()
+        #self.get_regex_pattern()
         #Articles list is a 3 tuple where the first value is the headline, the second value is the url, the third value is the score. 
         
     def get_name(self):
         
         return self.name
-                
-    def get_stripped_name(self):
+    
+    def get_regex_pattern(self):
         
-        x = self.name.split()
-        s = x[0]
-        punc = (",", ".")
-        if s.endswith(punc):
-            ls = len(s)
-            s = s[0:ls - 1]
+        textroot = Path('static/data/')
+        file = textroot / 'unwantedregex.txt'
+        with open(file, 'rt') as file:
+            r = file.readlines()
+            rlen = len(r)
+            pPuncregex = r[0]
+            patt = '(.*)('
+            for n in range(1, rlen):
+                patt = patt + '(' + r[n].strip() + ')|'
+            pattlen = len(patt)
+            patt = patt[0:pattlen - 1] + ')\\s*(.*)'
+        pNameregex = patt
+        cpNameregex = re.compile(pNameregex)
+        
+    def get_stripped_name(self): 
+        
+        c = self.name
+        punc = re.compile('(.*)[\\.,:;\\(\\)](.*)')
+        p = re.compile('(.*)((Company)|(corporation)|(Incorporated)|(Technologies)|(Limited)|(Holdings)|(Group)|(Walt)|(Inc)|(Ltd)|(com)|(The))\\s*(.*)', re.IGNORECASE)
+        m = punc.match(c)
+        while m is not None:
+            c = m.group(1).strip() + ' ' + m.group(2).strip()
+            m = punc.match(c)
+        m = p.match(c)
+        while m:
+            l = len(m.groups())
+            s = m.group(1).strip() + ' ' + m.group(l)
+            s = s.strip()
+            m = p.match(s)
         return s
-        
+    
     def get_trend(self):
         
         decision = 'Neutral'

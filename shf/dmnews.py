@@ -2,6 +2,7 @@ from shf import dmsuper, algo, myhtml, company_data
 import requests
 import json
 import urllib.request
+import re
 import sys
 import datetime
 import time
@@ -31,8 +32,7 @@ class DMNews(dmsuper.DMSuper):
         
         '''queries = [
                 'Uber',
-                'Lyft',
-                'Nintendo'
+                'Lyft'
         ]'''
         
         for query in queries:

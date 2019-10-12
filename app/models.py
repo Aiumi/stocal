@@ -63,6 +63,10 @@ class Company(db.Model):
     def get_company_name(self):
         return self.company_name
 
+'''class Watchlist(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    company_id = db.Column(db.Integer, db.ForeignKey('Company.id'), primary_key=True)'''
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))

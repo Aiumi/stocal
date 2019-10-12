@@ -1,10 +1,10 @@
-2019-09-21 14:02:32,416 ERROR: Exception on /company_list [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
+2019-10-12 14:38:51,982 ERROR: Exception on /user/dog [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
     cursor, statement, parameters, context
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\engine\default.py", line 552, in do_execute
     cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: company.company_symbol
+sqlite3.OperationalError: no such table: user
 
 The above exception was the direct cause of the following exception:
 
@@ -17,38 +17,40 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 153, in company_list
-    db.session.commit()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1026, in commit
-    self.transaction.commit()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\session.py", line 493, in commit
-    self._prepare_impl()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\session.py", line 472, in _prepare_impl
-    self.session.flush()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2451, in flush
-    self._flush(objects)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2589, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\util\compat.py", line 129, in reraise
-    raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2549, in _flush
-    flush_context.execute()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
-    uow,
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 245, in save_obj
-    insert,
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1120, in _emit_insert_statements
-    statement, params
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 70, in before_request
+    if current_user.is_authenticated:
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\local.py", line 348, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\werkzeug\local.py", line 307, in _get_current_object
+    return self.__local()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_login\login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\models.py", line 81, in load_user
+    return User.query.get(int(id))
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\query.py", line 959, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1069, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 282, in load_on_pk_identity
+    return q.one()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3275, in one
+    ret = self.one_or_none()
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3244, in one_or_none
+    ret = list(self)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3317, in __iter__
+    return self._execute_and_instances(context)
+  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3342, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\engine\base.py", line 988, in execute
     return meth(self, multiparams, params)
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
@@ -67,48 +69,11 @@ Traceback (most recent call last):
     cursor, statement, parameters, context
   File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\sqlalchemy\engine\default.py", line 552, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: company.company_symbol
-[SQL: INSERT INTO company (company_symbol, company_name) VALUES (?, ?)]
-[parameters: ('AAL', 'American Airlines Group, Inc.')]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-2019-09-21 14:09:23,439 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:12:27,564 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:14:48,054 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:15:49,027 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:27:20,212 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:27:27,953 ERROR: Exception on /user/dog [GET] [in c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\penga_000\desktop\python_projects\stocal\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\penga_000\Desktop\python_projects\stocal\app\routes.py", line 60, in user
-    slcompanies = sorted(companies)
-TypeError: '<' not supported between instances of 'Company' and 'Company'
-2019-09-21 14:40:03,404 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:47:30,405 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:48:34,933 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:52:21,652 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 14:59:35,057 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 15:01:46,824 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 15:03:25,789 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 15:04:39,566 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 15:14:04,505 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 15:53:44,464 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 15:57:33,709 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 16:07:54,020 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 16:10:37,615 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 16:13:11,774 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 16:25:44,863 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 16:26:39,769 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
-2019-09-21 16:37:34,939 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.id = ?]
+[parameters: (1,)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-10-12 14:39:31,317 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
+2019-10-12 14:39:38,423 INFO: Stocal startup [in C:\Users\penga_000\Desktop\python_projects\stocal\app\__init__.py:46]
